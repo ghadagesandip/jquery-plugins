@@ -1,0 +1,34 @@
+<html>
+<head>
+    <title>Callback</title>
+    <script src="../bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="../src/plugin-multiple-callnack.js"></script>
+</head>
+<body>
+<div class="test">test</div>
+<div class="test1">test 2   </div>
+
+</body>
+<script>
+    $(document).ready(function(){
+        $(".test").clickCallbackTest({
+            from:5,
+            success : function(from,data){
+                console.log(from +' ' + data)
+            },
+
+        });
+
+        $(".test1").clickCallbackTest({
+            from:2,
+            success : function(from,data){
+                console.log(from +' ' + data)
+            },
+            complete: function(data){
+                console.log(data)
+            }
+
+        });
+    });
+</script>
+</html>
